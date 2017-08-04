@@ -1,0 +1,16 @@
+# GCP
+*.key.json
+terraform*
+!terraform/
+
+# BBL
+bbl-state*
+deploy
+
+# BOSH
+*creds*
+*state*
+
+# IntelliJ
+*.iml
+.idea/

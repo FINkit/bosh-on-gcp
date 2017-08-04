@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2003-2017 Monitise Group Limited. All Rights Reserved.
+
+    Save to the extent permitted by law, you may not use, copy, modify,
+    distribute or create derivative works of this material or any part
+    of it without the prior written consent of Monitise Group Limited.
+    Any reproduction of this material must contain this notice.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.monitise.mcp.parent</groupId>
+		<artifactId>mcp-parent</artifactId>
+		<version>0.11.75</version>
+		<relativePath />
+	</parent>
+	<groupId>com.monitise.mcp</groupId>
+	<artifactId>bosh-on-gcp</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>bosh-on-gcp</name>
+	<description>bosh-on-gcp</description>
+	<properties>
+		<java.version>1.8</java.version>
+		<maven.plugin.surefire.skip>false</maven.plugin.surefire.skip>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<repository.release>https://nexus.build.finkit.io/repository/releases-libs/</repository.release>
+		<repository.snapshot>https://nexus.build.finkit.io/repository/snapshots-libs/</repository.snapshot>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.monitise.maven.plugin</groupId>
+				<artifactId>releasenotes-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+	<url>http://maven.buildtest.monitise.net/${project.groupId}/${project.artifactId}/${project.version}</url>
+	<scm>
+		<connection>${scm.git.url}/${project.artifactId}</connection>
+		<developerConnection>${scm.git.url}/${project.artifactId}</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+	<distributionManagement>
+		<site>
+			<id>mavensite</id>
+			<url>${MAVEN_SITE}/${project.groupId}/${project.artifactId}/${project.version}</url>
+		</site>
+	</distributionManagement>
+</project>
