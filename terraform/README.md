@@ -33,7 +33,7 @@ and execute the `destroy-bosh-director.sh` script:
 $. ./destroy-bosh-director.sh
 ```
 
-## Destroy BOSH Environment within GCP using the `destroy-bosh-resources` script;
----
+## Destroy BOSH Environment within GCP using the `destroy-bosh-resources` script
+```
 $ ./destroy-bosh-resources.sh -p <GCP_PROJECT>
----
+```
