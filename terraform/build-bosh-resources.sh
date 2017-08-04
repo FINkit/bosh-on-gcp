@@ -43,7 +43,7 @@ docker run -i -t \
   -e "GOOGLE_CREDENTIALS=${GOOGLE_CREDENTIALS}" \
   -v `pwd`/bosh-resources:/$(basename `pwd`) \
   -w /$(basename `pwd`) \
-  hashicorp/terraform:light plan \
+  hashicorp/terraform:0.9.11 plan \
     -var service_account_email="${GCP_SERVICE_ACCOUNT}@${GCP_PROJECT}.iam.gserviceaccount.com" \
     -var projectid=${GCP_PROJECT} \
     -var region=${GCP_REGION} \
@@ -55,7 +55,7 @@ docker run -i -t \
   -e "GOOGLE_CREDENTIALS=${GOOGLE_CREDENTIALS}" \
   -v `pwd`/bosh-resources:/$(basename `pwd`) \
   -w /$(basename `pwd`) \
-  hashicorp/terraform:light apply \
+  hashicorp/terraform:0.9.11 apply \
     -var service_account_email="${GCP_SERVICE_ACCOUNT}@${GCP_PROJECT}.iam.gserviceaccount.com" \
     -var projectid=${GCP_PROJECT} \
     -var region=${GCP_REGION} \
