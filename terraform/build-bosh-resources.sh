@@ -40,6 +40,8 @@ if [[ ! -d ".terraform/plugins" ]]; then
     terraform init
 fi
 
+terraform get -update=true
+
 echo "==========================================================="
 echo " Displaying Terraform Plan"
 echo "==========================================================="
