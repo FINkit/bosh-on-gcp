@@ -323,10 +323,3 @@ sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 EOT
 }
-
-module "bosh-haraka" {
-    source      = "github.com/migs/bosh-haraka//terraform"
-    projectid   = "${var.projectid}"
-    prefix      = "${var.prefix}"
-    network     = "${google_compute_network.bosh.name}"
-}
