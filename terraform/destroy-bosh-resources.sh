@@ -36,7 +36,7 @@ source ../properties/gcp.properties
 
 export GOOGLE_CREDENTIALS=$(cat ../${GCP_SERVICE_ACCOUNT}.key.json)
 
-cd terraform
+cd bosh-resources
 
 terraform destroy \
     -var service_account_email="${GCP_SERVICE_ACCOUNT}@${GCP_PROJECT}.iam.gserviceaccount.com" \
