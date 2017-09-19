@@ -24,7 +24,6 @@ do
     esac
 done
 
-
 if [ -z ${GCP_PROJECT} ]
 then
 
@@ -37,11 +36,9 @@ source ../properties/gcp.properties
 
 export GOOGLE_CREDENTIALS=$(cat ../${GCP_SERVICE_ACCOUNT}.key.json)
 
-docker run -i -t \
-  -e "GOOGLE_CREDENTIALS=${GOOGLE_CREDENTIALS}" \
-  -v `pwd`/bosh-resources:/$(basename `pwd`) \
-  -w /$(basename `pwd`) \
-  hashicorp/terraform:0.9.11 destroy \
+cd terraform
+
+terraform destroy \
     -var service_account_email="${GCP_SERVICE_ACCOUNT}@${GCP_PROJECT}.iam.gserviceaccount.com" \
     -var projectid=${GCP_PROJECT} \
     -var region=${GCP_REGION} \
