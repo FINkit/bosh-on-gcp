@@ -34,8 +34,6 @@ source ../properties/gcp.properties
 
 export GOOGLE_CREDENTIALS=$(cat ../${GCP_SERVICE_ACCOUNT}.key.json)
 
-cd terraform
-
 cd bosh-resources
 
 if [[ ! -d ".terraform/plugins" ]]; then

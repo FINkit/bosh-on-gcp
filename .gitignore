@@ -2,6 +2,7 @@
 *.key.json
 terraform*
 !terraform/
+terraform/bosh-resources/.terraform
 
 # BBL
 bbl-state*
