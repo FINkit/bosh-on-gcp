@@ -1,7 +1,7 @@
 // Easier mainteance for updating GCE image string
 variable "latest_ubuntu" {
     type = "string"
-    default = "ubuntu-1404-trusty-v20170718"
+    default = "ubuntu-1404-lts"
 }
 
 variable "projectid" {
@@ -322,4 +322,11 @@ resource "google_compute_instance" "nat-instance-private-with-nat-primary" {
 sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 EOT
+}
+
+module "bosh-haraka" {
+    source      = "github.com/migs/bosh-haraka//terraform"
+    projectid   = "${var.projectid}"
+    prefix      = "${var.prefix}"
+    network     = "${google_compute_network.bosh.name}"
 }
