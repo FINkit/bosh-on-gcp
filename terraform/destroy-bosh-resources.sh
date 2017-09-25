@@ -46,6 +46,9 @@ terraform destroy \
     -var baseip=${GCP_BASE_IP} \
     -var bosh_cli_version=${BOSH_CLI_VERSION}
 
+# Delete remaining stemcells
+yes | gcloud compute images delete $(gcloud compute images list | grep stemcell | awk '{print $1}')
+
 echo "==========================================================="
 echo " FINISHED "
 echo "==========================================================="
