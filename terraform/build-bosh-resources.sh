@@ -52,7 +52,8 @@ terraform plan \
     -var region=${GCP_REGION} \
     -var zone=${GCP_ZONE} \
     -var baseip=${GCP_BASE_IP} \
-    -var bosh_cli_version=${BOSH_CLI_VERSION}
+    -var bosh_cli_version=${BOSH_CLI_VERSION} \
+    -var terraform_version=${TERRAFORM_VERSION}
 
 terraform apply \
     -var service_account_email="${GCP_SERVICE_ACCOUNT}@${GCP_PROJECT}.iam.gserviceaccount.com" \
@@ -60,7 +61,8 @@ terraform apply \
     -var region=${GCP_REGION} \
     -var zone=${GCP_ZONE} \
     -var baseip=${GCP_BASE_IP} \
-    -var bosh_cli_version=${BOSH_CLI_VERSION}
+    -var bosh_cli_version=${BOSH_CLI_VERSION} \
+    -var terraform_version=${TERRAFORM_VERSION}
 
 echo "==========================================================="
 echo " FINISHED "
