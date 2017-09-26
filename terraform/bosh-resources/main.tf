@@ -35,7 +35,7 @@ variable "baseip" {
 
 variable "bosh_cli_version" {
     type = "string"
-    default = "2.0.16"
+    default = "2.0.40"
 }
 
 variable "terraform_version" {
