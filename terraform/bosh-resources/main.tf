@@ -38,6 +38,11 @@ variable "bosh_cli_version" {
     default = "2.0.16"
 }
 
+variable "terraform_version" {
+    type = "string"
+    default = "0.10.6"
+}
+
 provider "google" {
     project = "${var.projectid}"
     region = "${var.region}"
@@ -147,6 +152,12 @@ apt-get install -y git tree jq build-essential zlibc zlib1g-dev ruby ruby-dev op
 curl -O https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli-${var.bosh_cli_version}-linux-amd64
 chmod +x bosh-cli-*
 sudo mv bosh-cli-* /usr/local/bin/bosh
+
+# Install terraform
+wget https://releases.hashicorp.com/terraform/${var.terraform_version}/terraform_${var.terraform_version}_linux_amd64.zip
+unzip terraform_${var.terraform_version}_linux_amd64.zip
+chmod +x terraform
+sudo mv terraform /usr/bin/terraform
 
 cat > /etc/profile.d/bosh.sh <<'EOF'
 #!/bin/bash
