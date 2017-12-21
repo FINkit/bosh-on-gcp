@@ -115,8 +115,10 @@ resource "google_compute_instance" "bosh-bastion" {
 
   tags = ["bosh-bastion", "internal"]
 
-  disk {
-    image = "${var.latest_ubuntu}"
+  boot_disk {
+    initialize_params {
+      image = "${var.latest_ubuntu}"
+    }
   }
 
   network_interface {
@@ -315,8 +317,10 @@ resource "google_compute_instance" "nat-instance-private-with-nat-primary" {
 
   tags = ["nat", "internal"]
 
-  disk {
-    image = "${var.latest_ubuntu}"
+  boot_disk {
+    initialize_params {
+      image = "${var.latest_ubuntu}"
+    }
   }
 
   network_interface {
